@@ -184,10 +184,10 @@ public class Automata {
             }
             else
             {
-                return (contiene(control));
+                return (contiene(control) && (i == partes.length));
             }
             i++;
         }
-        return true;
+        return contiene(control);
     }
 }

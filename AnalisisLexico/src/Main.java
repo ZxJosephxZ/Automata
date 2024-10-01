@@ -8,9 +8,9 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         List<String> trazas = new ArrayList<>();
-        trazas.add("1,2,0,0,0");
-        trazas.add("0,2,0,0,0");
+        trazas.add("2,1,0,0,0");
         trazas.add("0,0,3,0,0");
+        trazas.add("0,1,0,0,0");
         trazas.add("0,0,0,4,0");
         trazas.add("0,0,0,0,5");
         trazas.add("0,0,0,4,0");
@@ -37,6 +37,6 @@ public class Main {
         System.out.println(automata.getMatriz().get(2));
         System.out.println(automata.getMatriz().get(3));
         System.out.println(automata.getMatriz().get(4));
-        automata.Operacion("a,a,b,e");
+        automata.Operacion("b,c,d,e,d,e");
     }
 }
