@@ -123,11 +123,43 @@ public class Automata {
         this.matriz = matriz;
     }
 
+    public boolean parseo(String test)
+    {
+        int i = 0;
+        String[]partes = test.split("");
+        while (i < partes.length)
+        {
+            char currentChar = partes[i].charAt(0);
+            if (!Alfabeto.contains(currentChar))
+            {
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
+
+    public boolean OperacionRetorno(String test)
+    {
+        int i = 0;
+        int control;
+        if (parseo(test) && comprobacion(test))
+        {
+            System.out.println("es correcto");
+            return true;
+        }
+        else
+        {
+            return false;
+            //System.out.println("incorrecto");
+        }
+    }
+
     public void Operacion(String test)
     {
         int i = 0;
         int control;
-        if (comprobacion(test))
+        if (parseo(test) && comprobacion(test))
         {
             System.out.println("es correcto");
         }
@@ -171,7 +203,8 @@ public class Automata {
     {
         int i = 0;
         int control = 0;
-        String[] partes = test.split(",");
+        String[] partes = test.split("");
+
         while (i < partes.length)
         {
             if (control == 0 && matriz.get(estadoInicial).get(partes[i].charAt(0)) != 0)

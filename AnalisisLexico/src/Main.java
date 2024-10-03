@@ -8,35 +8,25 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         List<String> trazas = new ArrayList<>();
-        trazas.add("2,1,0,0,0");
-        trazas.add("0,0,3,0,0");
-        trazas.add("0,1,0,0,0");
-        trazas.add("0,0,0,4,0");
-        trazas.add("0,0,0,0,5");
-        trazas.add("0,0,0,4,0");
+        trazas.add("2,1,0,0,0");//traza0
+        trazas.add("0,0,3,0,0");//traza1
+        trazas.add("0,1,0,0,0");//traza2
+        trazas.add("0,0,0,4,0");//traza3
+        trazas.add("0,0,0,0,5");//traza4
+        trazas.add("0,0,0,4,0");//traza5
         Automata automata = new Automata(0,"1,2,3,4,5,6","a,b,c,d,e","3,5", trazas);
         //automata.comprobacion();
-        System.out.print("inicial"+automata.getEstadoInicial()+" ");
-        System.out.print("final"+automata.getEstadosFinales().get(0));
-        System.out.println(automata.getEstadosFinales().get(1));
-        System.out.print(" ");
-        System.out.print(automata.getAlfabeto().get(0)+" " );
-        System.out.print(automata.getAlfabeto().get(1)+" " );
-        System.out.print(automata.getAlfabeto().get(2)+" " );
-        System.out.print(automata.getAlfabeto().get(3)+" " );
-        System.out.print(automata.getAlfabeto().get(4)+" " );
-        System.out.println();
-        System.out.println(automata.getEstados().get(0));
-        System.out.println(automata.getEstados().get(1));
-        System.out.println(automata.getEstados().get(2));
-        System.out.println(automata.getEstados().get(3));
-        System.out.println(automata.getEstados().get(4));
-        System.out.println(automata.getEstados().get(5));
-        System.out.println(automata.getMatriz().get(0));
-        System.out.println(automata.getMatriz().get(1));
-        System.out.println(automata.getMatriz().get(2));
-        System.out.println(automata.getMatriz().get(3));
-        System.out.println(automata.getMatriz().get(4));
-        automata.Operacion("b,c,d,e,d,e");
+
+        automata.Operacion("abcdede");
+        InputType input = new InputType(automata);
+        List<String>ppp;
+        ppp = input.crearCadenas("abcde");
+        int x = 0;
+        while (x < ppp.size())
+        {
+            System.out.println(ppp.get(x));
+            x++;
+        }
+        System.out.println(ppp.size());
     }
 }
