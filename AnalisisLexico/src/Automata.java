@@ -18,6 +18,9 @@ public class Automata {
         this.matriz = crearMatriz(Alfabeto, traza);
     }
 
+    /*
+    *Metodo que crea un hashmap que simula la traza de cada estado, el cual es implementado en la matriz de estados
+    * */
     private Map<Character, Integer> creadorTraza(List<Character> caracter, String numero)
     {
         int i = 0;
@@ -32,6 +35,10 @@ public class Automata {
         return mapeo;
     }
 
+    /*
+    *Metodo que crea la matriz de estados, implementando un hashmap principal y en cada posicion se concatena
+    *otro hashmap que sera la traza del estado correspondiente
+    * */
     private Map<Integer, Map<Character, Integer>>  crearMatriz(List<Character> alfabeto, List<String>traza)
     {
         //la traza es por indice y cada -> [1,1,2,3,4,5,6] -> que son los parametros para cada letra
@@ -45,6 +52,9 @@ public class Automata {
         return matriz;
     }
 
+    /*
+    *Metodo que inicializa una lista de estados, para la implementacion del automata
+    * */
     private List<Integer> iniciarEstados(String prompt)
     {
         int i = 0;
@@ -57,6 +67,10 @@ public class Automata {
         }
         return (estado);
     }
+
+    /*
+    *Metodo que crea una lista de los caracteres que implementa el automata
+    * */
     private List<Character> iniciarAlfabeto(String prompt)
     {
         int i = 0;
@@ -70,6 +84,9 @@ public class Automata {
         return alfabeto;
     }
 
+    /*
+    *Metodo que crea una lista con los estados finales, que indican si una cadena sera correcto
+    * */
     private List<Integer> iniciarEstadosFinales(String prompt)
     {
         int i = 0;
@@ -123,6 +140,9 @@ public class Automata {
         this.matriz = matriz;
     }
 
+    /*
+    * Metodo que se encarga de comprobar si la cadena a evaluar contiene los caracteres indicados en el automata
+    * */
     public boolean parseo(String test)
     {
         int i = 0;
@@ -139,22 +159,28 @@ public class Automata {
         return true;
     }
 
-    public boolean OperacionRetorno(String test)
+    /*
+    *Metodo que comprueba que las cadenas son validas segun el automata
+    */
+    public boolean operacionRetorno(String test)
     {
         int i = 0;
         int control;
         if (parseo(test) && comprobacion(test))
         {
-            System.out.println("es correcto");
+            //System.out.println("es correcto");
             return true;
         }
         else
         {
-            return false;
             //System.out.println("incorrecto");
+            return false;
         }
     }
 
+    /*
+    *Metodo para la comprobacion de una sola cadena de caracteres
+    */
     public void Operacion(String test)
     {
         int i = 0;
@@ -167,23 +193,6 @@ public class Automata {
         {
             System.out.println("incorrecto");
         }
-        /**
-        int i;
-
-        i = 0;
-        while (i < Test.size() && !Test.isEmpty())
-        {
-            if (comprobacion(Test.get(i)))
-            {
-                System.out.print("primer test completado: ");
-                System.out.println(Test.get(i));
-            }
-            else
-            {
-                System.out.println("no paso");
-            }
-            i++;
-        }*/
     }
 
     public boolean contiene(int result)
@@ -198,7 +207,9 @@ public class Automata {
         return false;
     }
 
-//comprobar funcionalidad
+    /*
+    *Comprueba la funcionalidad del automata
+     */
     public boolean comprobacion(String test)
     {
         int i = 0;

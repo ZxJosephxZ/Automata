@@ -8,7 +8,10 @@ public class InputType {
     public InputType(Automata automata) {
         this.automata = automata;
     }
-
+    /*
+    *Metodo que crea 100 cadenas de caracteres aleatorias de longitud maxima 10,
+    *mediante los caracteres del string pasado por parametros
+    */
     public  List<String> crearCadenas(String cadena)
     {
         int i = 0;
@@ -22,12 +25,14 @@ public class InputType {
                 int indiceAleatorio = random.nextInt(cadena.length());
                 cadenaAleatoria.append(cadena.charAt(indiceAleatorio));
             }
-            if (automata.OperacionRetorno(cadenaAleatoria.toString()))
+            //En caso de querer ver las cadenas de caracteres descomentar
+            //System.out.println(cadenaAleatoria.toString());
+            if (automata.operacionRetorno(cadenaAleatoria.toString()))
             {
                 p.add(new String(cadenaAleatoria.toString()));
-                i++;
             }
             cadenaAleatoria.setLength(0);
+            i++;
         }
         return p;
     }
